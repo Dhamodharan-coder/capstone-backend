@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main-container{
+    background: linear-gradient(100deg, rgb(55, 0, 255) 50%,purple);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}   
+.container{
+    padding: 20px;
+    border-radius: 10px;
+}
