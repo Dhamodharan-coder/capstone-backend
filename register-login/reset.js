@@ -32,7 +32,7 @@ router.post('/forgot_password', async (req, res) => {
         const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY_USER, { expiresIn: '1h' });
 
         // Create reset link
-        const resetLink = `${process.env.BASEURL}/reset_password/${token}`;
+        const resetLink = `${process.env.BASEURLL}/reset_password/${token}`;
 
         // Send email with reset link
         const mailOptions = {
