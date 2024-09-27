@@ -43,8 +43,8 @@ router.post("/payment", authenticateToken, async (req, res) => {
                     quantity: 1,
                 },
             ],
-            success_url: `http://localhost:5173/payment_success?session_id={CHECKOUT_SESSION_ID}&booking_id=${newBooking._id}`,
-            cancel_url: `http://localhost:5173/payment_failure?booking_id=${newBooking._id}`,  // Pass booking ID on cancel
+            success_url: `${process.env.BASEURL}/payment_success?session_id={CHECKOUT_SESSION_ID}&booking_id=${newBooking._id}`,
+            cancel_url: `${process.env.BASEURL}/payment_failure?booking_id=${newBooking._id}`,  // Pass booking ID on cancel
         });
 
         // Respond with the session URL for Stripe checkout
