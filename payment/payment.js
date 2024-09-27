@@ -7,7 +7,7 @@ const authenticateToken = require("../Auth");
 const Booking = require("../models/Booking");
 const PaymentSuccess = require("../models/Paymentsuccess");
 const DeletedBooking = require('../models/DeletedBooking');
-
+const BASEURL = process.env.BASEURL;
 // Create a payment session and temporarily save the booking
 router.post("/payment", authenticateToken, async (req, res) => {
     try {
@@ -43,8 +43,8 @@ router.post("/payment", authenticateToken, async (req, res) => {
                     quantity: 1,
                 },
             ],
-            success_url: `${process.env.BASEURL}/payment_success?session_id={CHECKOUT_SESSION_ID}&booking_id=${newBooking._id}`,
-            cancel_url: `${process.env.BASEURL}/payment_failure?booking_id=${newBooking._id}`,  // Pass booking ID on cancel
+            success_url: `${BASEURL}/payment_success?session_id={CHECKOUT_SESSION_ID}&booking_id=${newBooking._id}`,
+            cancel_url: `${BASEURL}/payment_failure?booking_id=${newBooking._id}`,  // Pass booking ID on cancel
         });
 
         // Respond with the session URL for Stripe checkout
